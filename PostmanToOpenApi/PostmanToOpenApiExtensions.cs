@@ -16,7 +16,6 @@ namespace PostmanToOpenApi
             var openApiDocument = new OpenApiDocument();
 
 
-
             return null;
         }
     }
