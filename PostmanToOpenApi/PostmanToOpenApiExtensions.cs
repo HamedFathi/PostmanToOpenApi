@@ -6,6 +6,15 @@ namespace PostmanToOpenApi
 {
     public static class PostmanToOpenApiExtensions
     {
+        public static OpenApiDocument ToOpenApiDocument(this string postmanCollectionJson, Setting setting = null)
+        {
+            if (string.IsNullOrWhiteSpace(postmanCollectionJson))
+            {
+                throw new ArgumentException($"'{nameof(postmanCollectionJson)}' cannot be null or whitespace.", nameof(postmanCollectionJson));
+            }
+            var postmanCollection = PostmanCollection.FromJson(postmanCollectionJson);
+            return postmanCollection.ToOpenApiDocument(setting);
+        }
         public static OpenApiDocument ToOpenApiDocument(this PostmanCollection postmanCollection, Setting setting = null)
         {
             if (postmanCollection is null)
@@ -20,7 +29,7 @@ namespace PostmanToOpenApi
 
 
 
-            return null;
+            return openApiDocument;
         }
         public static OpenApiInfo ToOpenApiInfo(this Information information, Setting setting)
         {
