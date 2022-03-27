@@ -24,10 +24,11 @@ namespace PostmanToOpenApi
                 throw new ArgumentNullException(nameof(postmanCollection));
             }
             setting = setting ?? new Setting();
-            var openApiDocument = new OpenApiDocument();
-
-            openApiDocument.Info = postmanCollection.Info.ToOpenApiInfo(setting);
-            openApiDocument.Servers = postmanCollection.ToOpenApiServers(setting);
+            var openApiDocument = new OpenApiDocument
+            {
+                Info = postmanCollection.Info.ToOpenApiInfo(setting),
+                Servers = postmanCollection.ToOpenApiServers(setting)
+            };
 
 
 
@@ -106,6 +107,29 @@ namespace PostmanToOpenApi
             }
 
             return result;
+        }
+        private static OpenApiRequestBody ToOpenApiRequestBody(this RequestUnion requestUnion, Setting setting)
+        {
+            if (setting is null)
+            {
+                throw new ArgumentNullException(nameof(setting));
+            }
+
+            return null;
+        }
+        private static OpenApiResponses ToOpenApiResponses(this IList<Response> responses, Setting setting)
+        {
+            if (responses is null)
+            {
+                throw new ArgumentNullException(nameof(responses));
+            }
+
+            if (setting is null)
+            {
+                throw new ArgumentNullException(nameof(setting));
+            }
+
+            return null;
         }
         private static string GetHostWithScheme(this Uri uri)
         {
