@@ -5,7 +5,7 @@
 		<Authors>Hamed Fathi</Authors>
 		<Company />
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<Version>1.0.0</Version>
+		<Version>0.0.1</Version>
 		<PackageProjectUrl>https://github.com/HamedFathi/PostmanToOpenApi</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/HamedFathi/PostmanToOpenApi</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
