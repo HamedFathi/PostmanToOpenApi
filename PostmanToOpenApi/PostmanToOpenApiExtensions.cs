@@ -31,7 +31,7 @@ namespace PostmanToOpenApi
 
             return openApiDocument;
         }
-        public static OpenApiInfo ToOpenApiInfo(this Information information, Setting setting)
+        private static OpenApiInfo ToOpenApiInfo(this Information information, Setting setting)
         {
             if (information is null)
             {
